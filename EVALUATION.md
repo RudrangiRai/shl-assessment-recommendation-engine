@@ -1,34 +1,26 @@
-# 📊 Evaluation Metrics for SHL Assessment Recommendation Engine
+# SHL Assessment Recommendation Engine – Project Summary
 
-## 🔍 Metrics Used
+**Objective:**  
+To build a web-based tool that recommends SHL assessments based on user’s skills and experience level.
 
-**1. Skill Match Accuracy**  
-- Matched user-input skills with SHL product catalog using keyword mapping.
-- Accuracy estimated at ~85% based on manual test cases.
+**Tech Stack:**  
+- Backend: Python (Flask)  
+- Frontend: HTML, JavaScript  
+- Data: JSON catalog file  
 
-**2. Response Time**
-- API response time is <200ms locally.
+**Approach:**  
+1. Created a Flask API `/recommend` to process POST requests.
+2. Read a `catalog.json` file containing SHL assessments, their skills, and experience levels.
+3. On receiving user input (skills + experience), matched against catalog using:
+   - Skill overlap
+   - Level match
+4. Returned matching results in JSON.
+5. Designed a simple `index.html` to take inputs and display recommendations.
+6. The project runs locally, instructions are in the README.
 
-**3. Coverage**
-- Currently supports 25+ skills.
-- Flexible to add more by extending `catalog.json`.
-
----
-
-## 🔄 Optimization Attempts
-
-**Initial version:**
-- Used direct string comparison for matching → low accuracy (~60%)
-
-**Improved version:**
-- Added:
-  - Lowercase conversion
-  - Trimmed whitespace
-  - Allowed partial matches and synonyms
-
-> **Result:** Accuracy improved to ~85%
-
-## 📈 Suggestions for Future Work
-
-- Add NLP-based fuzzy matching (e.g., using `difflib` or `spaCy`)
-- Improve UI with real-time feedback and dropdown skill selection
+**How to Run:**
+1. Clone or download the repo: [GitHub Repo](https://github.com/RudrangiRai/shl-assessment-recommendation-engine)
+2. Open the folder in VS Code or any IDE.
+3. Run the command:
+   ```bash
+   python app.py
