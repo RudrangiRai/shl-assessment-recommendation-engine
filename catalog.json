@@ -1,0 +1,38 @@
+[
+    {
+        "name": "Verbal Reasoning",
+        "skills": ["communication", "reading"],
+        "level": ["beginner", "intermediate", "advanced"],
+        "description": "Tests understanding of written content"
+    },
+    {
+        "name": "Numerical Reasoning",
+        "skills": ["data analysis", "math"],
+        "level": ["beginner", "intermediate", "advanced"],
+        "description": "Tests numerical data interpretation"
+    },
+    {
+        "name": "Logical Thinking",
+        "skills": ["logic", "problem solving"],
+        "level": ["beginner", "intermediate", "advanced"],
+        "description": "Tests logical reasoning and problem-solving skills"
+    },
+    {
+        "name": "Python Programming",
+        "skills": ["python", "data structures", "algorithms", "OOP"],
+        "level": ["beginner", "intermediate", "advanced"],
+        "description": "Tests basic programming skills in Python, data structures, and object-oriented programming"
+    },
+    {
+        "name": "JavaScript Development",
+        "skills": ["javascript", "web development", "react", "node.js", "async programming", "MERN stack", "html", "css"],
+        "level": ["beginner", "intermediate", "advanced"],
+        "description": "Tests advanced JavaScript concepts and React/Node.js frameworks"
+    },
+    {
+        "name": "Cloud Computing",
+        "skills": ["cloud computing", "AWS", "Azure", "DevOps"],
+        "level": ["beginner", "intermediate", "advanced"],
+        "description": "Tests knowledge of cloud platforms and DevOps practices"
+    }
+]

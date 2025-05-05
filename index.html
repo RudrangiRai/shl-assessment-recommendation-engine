@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SHL Assessment Recommender</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background: #f0f0f0; }
+    input, select, button { padding: 8px; margin: 5px; width: 300px; }
+    .result { margin-top: 20px; padding: 10px; background: white; border-radius: 8px; }
+  </style>
+</head>
+<body>
+  <h1>SHL Assessment Recommender</h1>
+
+  <label>Enter your skills (comma separated):</label><br>
+  <input type="text" id="skills" placeholder="e.g. communication, logic, math"><br>
+
+  <label>Select your experience level:</label><br>
+  <select id="experience">
+    <option value="beginner">Beginner</option>
+    <option value="intermediate">Intermediate</option>
+    <option value="advanced">Advanced</option>
+  </select><br>
+
+  <button onclick="getRecommendations()">Get Recommendations</button>
+
+  <div class="result" id="resultBox"></div>
+
+  <script>
+    async function getRecommendations() {
+      const skills = document.getElementById('skills').value
+        .split(',')
+        .map(s => s.trim().toLowerCase());
+      const experience = document.getElementById('experience').value;
+
+      const response = await fetch('/recommend', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ skills, experience })
+      });
+
+      const data = await response.json();
+
+      const resultBox = document.getElementById('resultBox');
+      resultBox.innerHTML = "";
+
+      if (data.length === 0) {
+        resultBox.innerHTML = "<b>No matching tests found.</b>";
+      } else {
+        data.forEach(test => {
+          resultBox.innerHTML += `
+            <div>
+              <h3>${test.name}</h3>
+              <p><strong>Level:</strong> ${test.level}</p>
+              <p><strong>Description:</strong> ${test.description}</p>
+              <hr>
+            </div>
+          `;
+        });
+      }
+    }
+  </script>
+</body>
+</html>
